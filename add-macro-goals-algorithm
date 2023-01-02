@@ -1,0 +1,51 @@
+<html>
+<body>
+
+<h1>Macros Algorithm</h1>
+
+<p>This algorithm calculates the macro goals (protein, fat, and carb intake) for a person based on their weight, height, age, activity level, and gender. It first calculates the person's basal metabolic rate (BMR) and total daily energy expenditure (TDEE), and then uses these values to calculate the person's macro goals.</p>
+
+<h2>Variables</h2>
+
+<ul>
+  <li>weight: the weight of the person in kilograms</li>
+  <li>height: the height of the person in meters</li>
+  <li>age: the age of the person in years</li>
+  <li>activity_level: a number representing the person's activity level (e.g. 1 for sedentary, 1.2 for light activity, 1.4 for moderate activity, and 1.6 for very active)</li>
+  <li>gender: a string representing the person's gender ("male", "female", or "other")</li>
+  <li>bmr: the person's basal metabolic rate (the number of calories needed to maintain their weight)</li>
+  <li>tdee: the person's total daily energy expenditure (the number of calories needed to maintain their weight based on their activity level)</li>
+  <li>protein_goal: the number of grams of protein needed per day</li>
+  <li>fat_goal: the number of grams of fat needed per day</li>
+  <li>carb_goal: the number of grams of carbs needed per day</li>
+</ul>
+<h2>Calculating BMR</h2>
+<p>To calculate the person's BMR, the following formula is used:</p>
+<ul>
+  <li>If the person's gender is "male", BMR = 66 + (13.7 * weight) + (5 * height) - (6.8 * age)</li>
+  <li>If the person's gender is "female", BMR = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age)</li>
+  <li>If the person's gender is "other", BMR = (weight * 10) + (height * 6.25) - (age * 5) - 161</li>
+</ul>
+<h2>Calculating TDEE</h2>
+<p>To calculate the person's TDEE, the following formula is used:</p>
+<p>TDEE = BMR * activity_level</p>
+<h2>Calculating Protein Goal</h2>
+<p>To calculate the person's protein goal, the following formulas are used:</p>
+<ul>
+  <li>Protein_goal = weight * 1.2 (for sedentary people)</li>
+  <li>Protein_goal = weight * 1.4 (for lightly active people)</li>
+  <li>Protein_goal = weight * 1.6 (for moderately active people)</li>
+  <li>Protein_goal = weight * 1.8 (for very active people)</li>
+</ul>
+<h2>Calculating Fat Goal</h2>
+<p>To calculate the person's fat goal, the following formula is used:</p>
+<p>Fat_goal = TDEE * 0.25 / 9 (25%of calories from fat)</p>
+
+<h2>Calculating Carb Goal</h2>
+<p>To calculate the person's carb goal, the following formula is used:</p>
+<p>Carb_goal = (TDEE - (protein_goal * 4) - (fat_goal * 9)) / 4</p>
+<h2>Returning Goals</h2>
+<p>The calculated goals are returned as a tuple:</p>
+<p>Return (protein_goal, fat_goal, carb_goal)</p>
+</body>
+</html>
